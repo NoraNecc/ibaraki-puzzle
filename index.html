@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>茨城県市町村パズル</title>
+  </head>
+
+  <body>
+    <header class="app-header">
+      <h1>茨城県市町村パズル</h1>
+      <p>市町村を選び、正しい位置へドラッグしてください。</p>
+    </header>
+
+    <main class="app-main">
+      <section class="status-panel">
+        <div class="status-item">
+          <span>完成数</span>
+          <strong>
+            <span id="placed-count">0</span>
+            /
+            <span id="total-count">0</span>
+          </strong>
+        </div>
+
+        <div class="status-item">
+          <span>経過時間</span>
+          <strong id="timer">00:00</strong>
+        </div>
+
+        <button id="reset-button" type="button">
+          リセット
+        </button>
+      </section>
+
+      <section class="game-panel">
+        <svg
+          id="map"
+          viewBox="0 0 1000 800"
+          role="img"
+          aria-label="茨城県市町村パズル"
+        >
+          <rect
+            class="workspace-background"
+            x="0"
+            y="0"
+            width="230"
+            height="800"
+          ></rect>
+
+          <text
+            class="workspace-label"
+            x="115"
+            y="35"
+            text-anchor="middle"
+          >
+            ピース作業領域
+          </text>
+
+          <g id="target-layer"></g>
+          <g id="piece-layer"></g>
+        </svg>
+
+        <p id="message" class="message" aria-live="polite">
+          下の一覧から市町村を選択してください。
+        </p>
+      </section>
+
+      <section class="piece-panel">
+        <h2>市町村ピース</h2>
+        <p>
+          ボタンを押すと、ピースが左側の作業領域に表示されます。
+        </p>
+
+        <div id="piece-tray" class="piece-tray"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
